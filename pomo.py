@@ -1,31 +1,29 @@
+#!/usr/bin/python3
 from time import sleep
 import sys
 
-import plyer
 from plyer import notification
 
 import typer
 
-import rich
 from rich.emoji import Emoji
 from rich.table import Column
 from rich.progress import (
     BarColumn,
-    DownloadColumn,
     Progress,
-    TaskID,
     TaskProgressColumn,
     TextColumn,
     TimeRemainingColumn,
-    TransferSpeedColumn,
 )
+
+app = typer.Typer()
 
 def get_layout(mode: str):
     layouts = {
         'work':(
             TextColumn("[red]Work Time![/red]", justify="right"),
             'Time to start working!',
-            25*60 - 4
+            25*60 
         ),
 
         'break':(
